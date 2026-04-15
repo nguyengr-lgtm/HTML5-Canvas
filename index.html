@@ -40,6 +40,34 @@ https://www.w3schools.com/w3css/default.asp
 var docMod = document.lastModified; // loads last modified time stamp into docMod variable
 //alert("This file last modified " + docMod); // generates alert box with last modified time stamp. un-comment out this entire line if you want to use.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+
+function drawRect() { //This draws a rectangle on the canvas
+	var a_canvas = document.getElementById('a'); //this variable calls the canvas using an id
+	var a_context = a_canvas.getContext('2d'); //sets canvas to 2 dimensional
+	a_context.fillStyle = "#FF69B4"; // rectangle is hot pink
+	a_context.fillRect(5, 5, 175, 100);//sets coordinates and placement of rectangle
+
+};
+function my_name() {//this function displays my name, "Alexandria"
+	var a_canvas = document.getElementById('a'); //this variable calls the canvas using an id
+	var a_context = a_canvas.getContext('2d'); //sets canvas to 2 dimensional
+	a_context.font = "30px Times New Roman"; // adds font for my name and size
+	a_context.fillStyle = "#000000"; // sets color of text to black
+	a_context.fillText ("Grace", 10, 150); //adds name text and coordinates for my name
+}; 
+function my_image() {//this function displays my chosen image
+	var a_canvas =document.getElementById('a'); //this variable calls the canvas using an id
+	var a_context = a_canvas.getContext('2d'); //sets canvas to 2 dimensional
+	var puppyimg = document.getElementById('puppyimg');//pulls longhorn image
+	a_context.drawImage(puppyimg, 5, 5, 100, 100);//draws image with size created by 4 numbers
+
+};
+function clear_canvas() {//this function clears the canvas
+	var a_canvas =document.getElementById('a');//this variable calls the canvas using an id
+ 	a_canvas.width = a_canvas.width; // causes the canvas to clear
+};
+
+
 </script>
 
 
@@ -52,13 +80,20 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>HTML5-Canvas</h1>
 </div>
-	/* Boarder /*
 <div id="content" class="w3-container">
 	<p>Content goes here.</p>
 	<p> The following code has been developed by students and/or researchers </p>	 
 	<p> THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION </p>
 </div>
-	<canvas id="a" width="300" height="190" style="border:2px solid #000000;"></canvas>
+	<canvas id="a" width="300" height="190" style="border:2px solid #000000;"></canvas> <!--added boarder!--> 
+   <p> Click the buttons below to create a work of art! </p> <!--Added a canvas!-->
+   <a onclick="drawRect();" class="w3-btn w3-grey w3-round"> Draw Rectangle!</a> <!--This creates a button that draws a rectangle-->
+   <a onclick="my_name();" class="w3-btn w3-grey w3-round"> Write name!</a> <!--creates a light blue button that draws ou tthe name-->
+   <img id='puppyimg' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-dn_9glTJ489nGjq2uVoru6SAD_eYr4a6Vg&s'alt='Image of Puppy' class='hidden'width='0' height='0'> <!-- image of puppy but hidden-->
+   <a onclick="my_image();" class="w3-btn w3-grey w3-round"> Draw image! </a> <!--puppy drawing-->
+   <a onclick="clear_canvas();" class="w3-btn w3-grey w3-round"> Clear Canvas!</a> <!--The button that clears the canvas-->
+
+
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
